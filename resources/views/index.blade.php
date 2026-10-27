@@ -143,7 +143,7 @@
                         <div class="swiper-slide">
                             <div class="ul-food">
                                 <div class="ul-food-img">
-                                    <img src="{{ asset('assets/img/food-1.png') }}" alt="food Image">
+                                    <img src="{{ asset('images/cochinita-pibil.webp') }}" alt="food Image">
                                 </div>
                                 <div class="ul-food-txt">
                                     <a href="shop-details.html" class="ul-food-title">Cochinita Pibil</a>
@@ -158,7 +158,7 @@
                                             <i class="flaticon-star"></i>
                                         </div>
                                     </div>
-                                    <button class="ul-food-add-to-cart-btn"><i class="flaticon-cart"></i></button>
+                                   <button class="ul-food-add-to-cart-btn add-to-cart" data-id="1" data-name="Cochinita Pibil" data-price="1" data-img="images/cochinita-pibil.webp"><i class="flaticon-cart"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +167,7 @@
                         <div class="swiper-slide">
                             <div class="ul-food">
                                 <div class="ul-food-img">
-                                    <img src="{{ asset('assets/img/food-2.png') }}" alt="food Image">
+                                    <img src="{{ asset('images/mole-pollo.webp') }}" alt="food Image">
                                 </div>
                                 <div class="ul-food-txt">
                                     <a href="shop-details.html" class="ul-food-title">Mole con Pollo</a>
@@ -182,13 +182,7 @@
                                             <i class="flaticon-star"></i>
                                         </div>
                                     </div>
-                                    <button class="ul-food-add-to-cart-btn add-to-cart"
-                                        data-id="2"
-                                        data-name="Mole con Pollo"
-                                        data-price="1"
-                                        data-img="assets/img/food-2.png">
-                                        <i class="flaticon-cart"></i>
-                                    </button>
+                                    <button class="ul-food-add-to-cart-btn add-to-cart" data-id="2" data-name="Mole con Pollo" data-price="1" data-img="images/mole-pollo.webp"><i class="flaticon-cart"></i></button> 
                                 </div>
                             </div>
                         </div>
@@ -196,7 +190,7 @@
                         <div class="swiper-slide">
                             <div class="ul-food">
                                 <div class="ul-food-img">
-                                    <img src="{{ asset('assets/img/food-3.png') }}" alt="food Image">
+                                    <img src="{{ asset('images/quesadillas.webp') }}" alt="food Image">
                                 </div>
                                 <div class="ul-food-txt">
                                     <a href="shop-details.html" class="ul-food-title">Charola con Mini Quesadillas </a>
@@ -211,7 +205,7 @@
                                             <i class="flaticon-star"></i>
                                         </div>
                                     </div>
-                                    <button class="ul-food-add-to-cart-btn"><i class="flaticon-cart"></i></button>
+                                    <button class="ul-food-add-to-cart-btn add-to-cart" data-id="5" data-name="Mini Quesadillas" data-price="1" data-img="images/quesadillas.webp"><i class="flaticon-cart"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -220,7 +214,7 @@
                         <div class="swiper-slide">
                             <div class="ul-food">
                                 <div class="ul-food-img">
-                                    <img src="{{ asset('assets/img/food-1.png') }}" alt="food Image">
+                                    <img src="{{ asset('images/patel-leche.webp') }}" alt="food Image">
                                 </div>
                                 <div class="ul-food-txt">
                                     <a href="shop-details.html" class="ul-food-title">Pastel de Tres Leches </a>
@@ -235,7 +229,7 @@
                                             <i class="flaticon-star"></i>
                                         </div>
                                     </div>
-                                    <button class="ul-food-add-to-cart-btn"><i class="flaticon-cart"></i></button>
+                                    <button class="ul-food-add-to-cart-btn add-to-cart" data-id="9" data-name="Pastel de Tres Leches" data-price="1" data-img="images/patel-leche.webp"><i class="flaticon-cart"></i></button> 
                                 </div>
                             </div>
                         </div>
@@ -244,7 +238,7 @@
                         <div class="swiper-slide">
                             <div class="ul-food">
                                 <div class="ul-food-img">
-                                    <img src="{{ asset('assets/img/food-2.png') }}" alt="food Image">
+                                    <img src="{{ asset('images/tinga-pollo.webp') }}" alt="food Image">
                                 </div>
                                 <div class="ul-food-txt">
                                     <a href="shop-details.html" class="ul-food-title">Tinga de Pollo</a>
@@ -259,7 +253,7 @@
                                             <i class="flaticon-star"></i>
                                         </div>
                                     </div>
-                                    <button class="ul-food-add-to-cart-btn"><i class="flaticon-cart"></i></button>
+                                    <button class="ul-food-add-to-cart-btn add-to-cart" data-id="3" data-name="Tinga de Pollo" data-price="1" data-img="images/tinga-pollo.webp"><i class="flaticon-cart"></i></button>    
                                 </div>
                             </div>
                         </div>
@@ -268,7 +262,7 @@
                         <div class="swiper-slide">
                             <div class="ul-food">
                                 <div class="ul-food-img">
-                                    <img src="{{ asset('assets/img/food-3.png') }}" alt="food Image">
+                                    <img src="{{ asset('images/sopes.webp') }}" alt="food Image">
                                 </div>
                                 <div class="ul-food-txt">
                                     <a href="shop-details.html" class="ul-food-title">Sopes (Docena)</a>
@@ -283,7 +277,7 @@
                                             <i class="flaticon-star"></i>
                                         </div>
                                     </div>
-                                    <button class="ul-food-add-to-cart-btn"><i class="flaticon-cart"></i></button>
+                                     <button class="ul-food-add-to-cart-btn add-to-cart" data-id="6" data-name="Sopes" data-price="1" data-img="images/sopes.webp"><i class="flaticon-cart"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -292,7 +286,7 @@
                         <div class="swiper-slide">
                             <div class="ul-food">
                                 <div class="ul-food-img">
-                                    <img src="{{ asset('assets/img/food-1.png') }}" alt="food Image">
+                                    <img src="{{ asset('images/enchiladas.webp') }}" alt="food Image">
                                 </div>
                                 <div class="ul-food-txt">
                                     <a href="shop-details.html" class="ul-food-title">Enchiladas Verdes </a>
@@ -307,7 +301,7 @@
                                             <i class="flaticon-star"></i>
                                         </div>
                                     </div>
-                                    <button class="ul-food-add-to-cart-btn"><i class="flaticon-cart"></i></button>
+                                    <button class="ul-food-add-to-cart-btn add-to-cart" data-id="4" data-name="Enchiladas Verdes" data-price="1" data-img="images/enchiladas.webp"><i class="flaticon-cart"></i></button>
                                 </div>
                             </div>
                         </div>

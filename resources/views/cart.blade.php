@@ -4,13 +4,13 @@
 
 @section('content')
         <!-- BREADCRUMB SECTION START -->
-        <div class="ul-breadcrumb">
+        <img src="{{ asset('images/carrito.webp') }}" alt="food Image">
             <div class="wow animate__fadeInUp">
-                <h2 class="ul-breadcrumb-title">Cart Page</h2>
+                <h2 class="ul-breadcrumb-title">CARRITO</h2>
                 <div class="ul-breadcrumb-nav">
                     <a href="{{ route('home') }}">Home</a>
                     <span class="separator">/</span>
-                    <span class="current-page">Cart Page</span>
+                    <span class="current-page">Carrito</span>
                 </div>
             </div>
         </div>

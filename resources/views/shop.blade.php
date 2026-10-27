@@ -4,7 +4,7 @@
 
 @section('content')
         <!-- BREADCRUMB SECTION START -->
-        <div class="ul-breadcrumb">
+        <img src="{{ asset('images/menu(1).webp') }}" alt="food Image">
             <div class="wow animate__fadeInUp">
                 <h2 class="ul-breadcrumb-title">Shop</h2>
                 <div class="ul-breadcrumb-nav">
@@ -214,7 +214,7 @@
                     <div class="col">
                         <div class="ul-food">
                             <div class="ul-food-img">
-                                <img src="{{ asset('images/patel.lehe.webp') }}" alt="food Image">
+                                <img src="{{ asset('images/patel-leche.webp') }}" alt="food Image">
                             </div>
                             <div class="ul-food-txt">
                                 <a href="shop-details.html" class="ul-food-title">Pastel de Tres Leches</a>
@@ -229,7 +229,7 @@
                                         <i class="flaticon-star"></i>
                                     </div>
                                 </div>
-<button class="ul-food-add-to-cart-btn add-to-cart" data-id="9" data-name="Pastel de Tres Leches" data-price="1" data-img="images/patel.lehe.webp"><i class="flaticon-cart"></i></button>                            </div>
+<button class="ul-food-add-to-cart-btn add-to-cart" data-id="9" data-name="Pastel de Tres Leches" data-price="1" data-img="images/patel-leche.webp"><i class="flaticon-cart"></i></button>                            </div>
                         </div>
                     </div>
 
