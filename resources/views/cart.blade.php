@@ -4,13 +4,13 @@
 
 @section('content')
         <!-- BREADCRUMB SECTION START -->
-        <img src="{{ asset('images/carrito.webp') }}" alt="food Image">
+        <div class="ul-breadcrumb">
             <div class="wow animate__fadeInUp">
-                <h2 class="ul-breadcrumb-title">CARRITO</h2>
+                <h2 class="ul-breadcrumb-title">Cart Page</h2>
                 <div class="ul-breadcrumb-nav">
                     <a href="{{ route('home') }}">Home</a>
                     <span class="separator">/</span>
-                    <span class="current-page">Carrito</span>
+                    <span class="current-page">Cart Page</span>
                 </div>
             </div>
         </div>
@@ -61,6 +61,18 @@
 
 
                         <div style="margin-bottom:16px;">
+                            <label for="customer-name" class="inner-title" style="display:block; margin-bottom:6px;">Nombre</label>
+                            <input type="text" id="customer-name" placeholder="Tu nombre" autocomplete="name"
+                                   style="width:100%; padding:10px 12px; border:1px solid #ddd; border-radius:6px; background:#fff;">
+                        </div>
+
+                        <div style="margin-bottom:16px;">
+                            <label for="customer-email" class="inner-title" style="display:block; margin-bottom:6px;">Correo electrónico</label>
+                            <input type="email" id="customer-email" placeholder="tucorreo@ejemplo.com" autocomplete="email"
+                                   style="width:100%; padding:10px 12px; border:1px solid #ddd; border-radius:6px; background:#fff;">
+                        </div>
+
+                        <div style="margin-bottom:16px;">
     <label for="delivery-date" class="inner-title" style="display:block; margin-bottom:6px;">Fecha de entrega</label>
     <input type="text" id="delivery-date" placeholder="Selecciona una fecha" readonly
            style="width:100%; padding:10px 12px; border:1px solid #ddd; border-radius:6px; background:#fff;">
@@ -74,3 +86,7 @@
         </div>
         <!-- CART SECTION END -->
 @endsection
+
+@push('scripts')
+<script src="{{ asset('assets/js/checkout.js') }}"></script>
+@endpush

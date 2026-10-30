@@ -15,3 +15,9 @@ Route::get('/shop', function () {
 Route::get('/cart', function () {
     return view('cart');
 })->name('cart');
+
+use App\Http\Controllers\CheckoutController;
+
+Route::post('/checkout', [CheckoutController::class, 'create'])->name('checkout');
+Route::post('/mercadopago/webhook', [CheckoutController::class, 'webhook'])->name('mp.webhook');
+Route::view('/gracias', 'gracias')->name('gracias');

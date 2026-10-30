@@ -206,7 +206,7 @@
                                         <i class="flaticon-star"></i>
                                     </div>
                                 </div>
-<button class="ul-food-add-to-cart-btn add-to-cart" data-id="8" data-name="Flautas Doradas" data-price="4500" data-img="images/flautas.webp"><i class="flaticon-cart"></i></button>                            </div>
+<button class="ul-food-add-to-cart-btn add-to-cart" data-id="8" data-name="Flautas Doradas" data-price="1" data-img="images/flautas.webp"><i class="flaticon-cart"></i></button>                            </div>
                         </div>
                     </div>
 
@@ -298,7 +298,7 @@
                                         <i class="flaticon-star"></i>
                                     </div>
                                 </div>
-<button class="ul-food-add-to-cart-btn add-to-cart" data-id="12" data-name="Pay de Limon" data-price="4500" data-img="images/pay-limon.webp"><i class="flaticon-cart"></i></button>                            </div>
+<button class="ul-food-add-to-cart-btn add-to-cart" data-id="12" data-name="Pay de Limon" data-price="1" data-img="images/pay-limon.webp"><i class="flaticon-cart"></i></button>                            </div>
                         </div>
                     </div>
                 </div>

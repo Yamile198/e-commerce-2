@@ -10,9 +10,11 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
-    ->withMiddleware(function (Middleware $middleware): void {
-        //
-    })
+    ->withMiddleware(function (Middleware $middleware) {
+    $middleware->validateCsrfTokens(except: ['mercadopago/webhook']);
+    // ngrok (y la mayoría de hostings) entregan la petición por http; así Laravel respeta el https original.
+    $middleware->trustProxies(at: '*');
+})
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();
