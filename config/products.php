@@ -4,8 +4,8 @@
 // Los ids son los data-id de los botones "add-to-cart" de shop.blade.php.
 // Precios en 1 = precio de prueba. Cámbialos por los reales antes de salir a producción.
 return [
-    1  => ['name' => 'Cochinita Pibil',        'price' => 150],
-    2  => ['name' => 'Mole con Pollo',         'price' => 150],
+    1  => ['name' => 'Cochinita Pibil',        'price' => 1],
+    2  => ['name' => 'Mole con Pollo',         'price' => 1],
     3  => ['name' => 'Tinga de Pollo',         'price' => 1],
     4  => ['name' => 'Enchiladas Verdes',      'price' => 1],
     5  => ['name' => 'Mini Quesadillas',       'price' => 1],

@@ -131,7 +131,7 @@
                             <a href="{{ route('cart') }}"><i class="flaticon-grocery-store"></i></a>
                             <span class="cart-count" style="position:absolute; top:-6px; right:-8px; background:#e8002d; color:#fff; font-size:11px; min-width:18px; height:18px; line-height:18px; border-radius:50%; text-align:center; pointer-events:none;">0</span>
                         </button>
-                        <a href="{{ route('home') }}" class="ul-btn d-sm-inline-flex d-none">¡Cotiza Ahora! <i class="flaticon-right"></i></a>
+                        <a href="https://wa.me/527203333170?text={{ rawurlencode('Hola, quiero cotizar un pedido en Sabores en Casa') }}" target="_blank" rel="noopener" class="ul-btn d-sm-inline-flex d-none">¡Cotiza Ahora! <i class="flaticon-right"></i></a>
                         <button class="ul-header-sidebar-opener d-lg-none d-inline-flex"><i class="flaticon-menu"></i></button>
                     </div>
                 </div>

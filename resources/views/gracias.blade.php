@@ -3,7 +3,7 @@
 @section('title', 'Gracias por tu pedido | Sabores en Casa')
 
 @section('content')
-    <div class="ul-breadcrumb">
+    <div class="ul-breadcrumb" style="background-image: url('{{ asset('images/gracias.webp') }}');">
         <div class="wow animate__fadeInUp">
             <h2 class="ul-breadcrumb-title">¡Gracias por tu pedido!</h2>
         </div>

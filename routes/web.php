@@ -19,5 +19,7 @@ Route::get('/cart', function () {
 use App\Http\Controllers\CheckoutController;
 
 Route::post('/checkout', [CheckoutController::class, 'create'])->name('checkout');
+Route::get('/checkout/fechas-llenas', [CheckoutController::class, 'fullDates'])->name('checkout.full-dates');
+Route::get('/api/disponibilidad', [CheckoutController::class, 'availability'])->name('api.availability');
 Route::post('/mercadopago/webhook', [CheckoutController::class, 'webhook'])->name('mp.webhook');
 Route::view('/gracias', 'gracias')->name('gracias');

@@ -1,5 +1,8 @@
 // ---------- PARTE A: guardar y leer el carrito ----------
 const getCart = () => JSON.parse(localStorage.getItem('cart')) || [];
+const MAX_UNITS = 5; // igual que MAX_UNITS_PER_ORDER en CheckoutController
+const cartUnits = cart => cart.reduce((sum, i) => sum + i.qty, 0);
+const maxUnitsMessage = () => alert(`Cada pedido puede tener máximo ${MAX_UNITS} productos`);
 
 function saveCart(cart) {
   localStorage.setItem('cart', JSON.stringify(cart));
@@ -21,6 +24,8 @@ document.addEventListener('click', e => {
   const { id, name, price, img } = btn.dataset;
   const cart = getCart();
   const item = cart.find(i => i.id === id);
+
+  if (cartUnits(cart) >= MAX_UNITS) return maxUnitsMessage();
 
   if (item) item.qty++;
   else cart.push({ id, name, price: parseFloat(price), img, qty: 1 });
@@ -85,6 +90,7 @@ document.addEventListener('click', e => {
   if (remove) cart = cart.filter(i => i.id !== id);
   else {
     const item = cart.find(i => i.id === id);
+    if (plus && cartUnits(cart) >= MAX_UNITS) return maxUnitsMessage();
     item.qty += plus ? 1 : -1;
     if (item.qty < 1) item.qty = 1;
   }
@@ -101,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('delivery-date');
   if (!input || typeof flatpickr === 'undefined') return;
 
-  flatpickr(input, {
+  const picker = flatpickr(input, {
     minDate: 'today',          // no deja elegir días pasados
     dateFormat: 'd/m/Y',
     disableMobile: true,
@@ -117,6 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  // Bloquea los días que ya tienen el máximo de pedidos (el servidor lo vuelve a revisar al pagar).
+  fetch('/checkout/fechas-llenas')
+    .then(r => r.json())
+    .then(dates => picker.set('disable', dates))
+    .catch(() => {});
 });
 
 document.addEventListener('click', e => {

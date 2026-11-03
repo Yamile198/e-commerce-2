@@ -4,7 +4,7 @@
 
 @section('content')
         <!-- BREADCRUMB SECTION START -->
-        <div class="ul-breadcrumb">
+        <div class="ul-breadcrumb" style="background-image: url('{{ asset('images/carrito1.webp') }}');">
             <div class="wow animate__fadeInUp">
                 <h2 class="ul-breadcrumb-title">Cart Page</h2>
                 <div class="ul-breadcrumb-nav">

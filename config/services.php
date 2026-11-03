@@ -36,5 +36,5 @@ return [
     ],
 
 'mercadopago' => ['token' => env('MERCADOPAGO_ACCESS_TOKEN')],
-'n8n'         => ['webhook_url' => env('N8N_WEBHOOK_URL')],
+'n8n'         => ['webhook_url' => env('N8N_WEBHOOK_URL'), 'api_token' => env('N8N_API_TOKEN')],
 ];
