@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -85,18 +86,39 @@ class CheckoutController extends Controller
         $data = $request->validate([
             'name'          => 'required|string|max:120',
             'email'         => 'required|email|max:120',
+            'address'       => 'required|string|max:300',
             'delivery_date' => 'required|string|max:30',
             'items'         => 'required|array|min:1',
             'items.*.id'    => 'required|integer',
             'items.*.qty'   => 'required|integer|min:1|max:50',
+            'items.*.extras'   => 'nullable|array|max:10',
+            'items.*.extras.*' => 'string|max:40',
+        ], [
+            'address.required' => 'Escribe la dirección de entrega.',
+            'address.max'      => 'La dirección puede tener máximo 300 caracteres.',
         ]);
 
         $email = strtolower($data['email']);
         $date  = $data['delivery_date'];
 
-        // Unidades pedidas por platillo (suma si el mismo id viene repetido).
+        // Los precios y los ingredientes salen del servidor, no del navegador.
+        $catalog = config('products');
+
+        // Une las líneas iguales (mismo platillo y mismos ingredientes) y cuenta unidades por platillo.
+        $lines     = [];
         $requested = [];
         foreach ($data['items'] as $row) {
+            $product = $catalog[$row['id']] ?? null;
+            if (!$product) {
+                return response()->json(['message' => 'Producto no válido'], 422);
+            }
+
+            // Solo se aceptan ingredientes del catálogo; sin 'extras' (carritos viejos) va con todos.
+            $allowed = $product['extras'] ?? [];
+            $extras  = array_values(array_intersect($allowed, $row['extras'] ?? $allowed));
+            $key     = $row['id'] . '|' . implode(',', $extras);
+
+            $lines[$key] = ['id' => $row['id'], 'extras' => $extras, 'qty' => ($lines[$key]['qty'] ?? 0) + $row['qty']];
             $requested[$row['id']] = ($requested[$row['id']] ?? 0) + $row['qty'];
         }
 
@@ -119,16 +141,8 @@ class CheckoutController extends Controller
             }
         }
 
-        // Los precios salen del servidor, no del navegador.
-        $catalog = config('products');
-        $mpItems = [];
-        $total   = 0;
-
         foreach ($requested as $id => $qty) {
-            $product = $catalog[$id] ?? null;
-            if (!$product) {
-                return response()->json(['message' => 'Producto no válido'], 422);
-            }
+            $product = $catalog[$id];
 
             $left = self::MAX_UNITS_PER_PRODUCT - ($alreadyBought[$id] ?? 0);
             if ($qty > $left) {
@@ -137,23 +151,37 @@ class CheckoutController extends Controller
                     : "Ya pediste el máximo de {$product['name']} para el {$date}.";
                 return response()->json(['message' => $message], 422);
             }
+        }
 
-            $mpItems[] = [
-                'id'          => (string) $id, // para contar el límite por platillo en pedidos futuros
-                'title'       => $product['name'],
-                'quantity'    => (int) $qty,
+        $items = [];
+        $total = 0;
+
+        foreach ($lines as $line) {
+            $product = $catalog[$line['id']];
+            $without = array_values(array_diff($product['extras'] ?? [], $line['extras']));
+
+            $items[] = [
+                'id'          => (string) $line['id'], // para contar el límite por platillo en pedidos futuros
+                'title'       => $product['name'] . ($without ? ' (sin ' . mb_strtolower(implode(', ', $without)) . ')' : ''),
+                'quantity'    => (int) $line['qty'],
                 'unit_price'  => (float) $product['price'],
                 'currency_id' => 'MXN',
+                'con'         => $line['extras'],
+                'sin'         => $without,
             ];
-            $total += $product['price'] * $qty;
+            $total += $product['price'] * $line['qty'];
         }
+
+        // Mercado Pago solo recibe los campos que conoce; 'con' y 'sin' se quedan en el pedido.
+        $mpItems = array_map(fn ($item) => Arr::only($item, ['id', 'title', 'quantity', 'unit_price', 'currency_id']), $items);
 
         $order = Order::create([
             'reference'     => 'SC-' . strtoupper(Str::random(8)),
             'name'          => $data['name'],
             'email'         => $email,
+            'address'       => $data['address'],
             'delivery_date' => $date,
-            'items'         => $mpItems,
+            'items'         => $items,
             'total'         => $total,
         ]);
 
@@ -254,6 +282,7 @@ class CheckoutController extends Controller
                 'reference'     => $order->reference,
                 'name'          => $order->name,
                 'email'         => $order->email,
+                'address'       => $order->address,
                 'delivery_date' => $order->delivery_date,
                 'total'         => (float) $order->total,
                 'items'         => $order->items,

@@ -73,6 +73,13 @@
                         </div>
 
                         <div style="margin-bottom:16px;">
+                            <label for="customer-address" class="inner-title" style="display:block; margin-bottom:6px;">Dirección de entrega</label>
+                            <textarea id="customer-address" rows="3" maxlength="300" autocomplete="street-address"
+                                      placeholder="Calle, número, colonia y alguna referencia"
+                                      style="width:100%; padding:10px 12px; border:1px solid #ddd; border-radius:6px; background:#fff; resize:vertical;"></textarea>
+                        </div>
+
+                        <div style="margin-bottom:16px;">
     <label for="delivery-date" class="inner-title" style="display:block; margin-bottom:6px;">Fecha de entrega</label>
     <input type="text" id="delivery-date" placeholder="Selecciona una fecha" readonly
            style="width:100%; padding:10px 12px; border:1px solid #ddd; border-radius:6px; background:#fff;">

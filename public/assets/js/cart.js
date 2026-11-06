@@ -21,17 +21,72 @@ document.addEventListener('click', e => {
   if (!btn) return;
   e.preventDefault();
 
-  const { id, name, price, img } = btn.dataset;
-  const cart = getCart();
-  const item = cart.find(i => i.id === id);
+  if (cartUnits(getCart()) >= MAX_UNITS) return maxUnitsMessage();
 
+  const data = { ...btn.dataset };
+  if (productExtras(data.id)) openExtrasModal(data);
+  else addToCart(data, null);
+});
+
+// Ingredientes que se pueden quitar de un platillo (window.PRODUCT_EXTRAS viene del layout).
+const productExtras = id => (window.PRODUCT_EXTRAS || {})[id];
+
+// Cada combinación de platillo + ingredientes es una línea distinta del carrito.
+const lineKey = (id, extras) => extras ? `${id}|${extras.join(',')}` : id;
+const itemKey = i => i.key || i.id;
+
+function addToCart({ id, name, price, img }, extras) {
+  const cart = getCart();
   if (cartUnits(cart) >= MAX_UNITS) return maxUnitsMessage();
 
+  const key = lineKey(id, extras);
+  const item = cart.find(i => itemKey(i) === key);
+
   if (item) item.qty++;
-  else cart.push({ id, name, price: parseFloat(price), img, qty: 1 });
+  else cart.push({ key, id, name, price: parseFloat(price), img, qty: 1, extras });
 
   saveCart(cart);
-});
+}
+
+function openExtrasModal(data) {
+  const modal = document.createElement('div');
+  modal.className = 'extras-modal';
+  modal.innerHTML = `
+    <div class="extras-modal-box" role="dialog" aria-modal="true" aria-labelledby="extras-modal-title">
+      <h3 id="extras-modal-title">${data.name}</h3>
+      <p>Desmarca lo que no quieras:</p>
+      ${productExtras(data.id).map(x => `
+        <label class="extras-modal-option"><input type="checkbox" value="${x}" checked> ${x}</label>`).join('')}
+      <div class="extras-modal-actions">
+        <button type="button" class="extras-modal-cancel">Cancelar</button>
+        <button type="button" class="ul-btn extras-modal-add">Agregar al carrito</button>
+      </div>
+    </div>`;
+
+  const close = () => { modal.remove(); document.removeEventListener('keydown', onKey); };
+  const onKey = e => { if (e.key === 'Escape') close(); };
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal || e.target.closest('.extras-modal-cancel')) return close();
+    if (e.target.closest('.extras-modal-add')) {
+      const chosen = [...modal.querySelectorAll('input:checked')].map(i => i.value);
+      close();
+      addToCart(data, chosen);
+    }
+  });
+  document.addEventListener('keydown', onKey);
+
+  document.body.appendChild(modal);
+  modal.querySelector('.extras-modal-add').focus();
+}
+
+// "Con todo" o "Sin: cebolla, salsa", para mostrar en el carrito.
+function extrasText(i) {
+  const all = productExtras(i.id);
+  if (!all || !i.extras) return '';
+  const without = all.filter(x => !i.extras.includes(x));
+  return without.length ? `Sin: ${without.join(', ').toLowerCase()}` : 'Con todo';
+}
 
 // ---------- PARTE C: mostrar el carrito en cart.html ----------
 const money = n => '$' + n.toLocaleString('es-MX', { minimumFractionDigits: 2 });
@@ -48,7 +103,7 @@ function renderCart() {
       <td>
         <div class="ul-cart-product">
           <span class="ul-cart-product-img"><img src="${i.img}" alt="${i.name}"></span>
-          <span class="ul-cart-product-title">${i.name}</span>
+          <span class="ul-cart-product-title">${i.name}${extrasText(i) ? `<small class="ul-cart-product-extras">${extrasText(i)}</small>` : ''}</span>
         </div>
       </td>
       <td><span class="ul-cart-item-price">${money(i.price)}</span></td>
@@ -57,15 +112,15 @@ function renderCart() {
           <div class="ul-product-quantity-wrapper">
             <input type="number" class="ul-product-quantity" value="${i.qty}" min="1" readonly>
             <div class="btns">
-              <button type="button" class="qty-plus" data-id="${i.id}"><i class="flaticon-plus"></i></button>
-              <button type="button" class="qty-minus" data-id="${i.id}"><i class="flaticon-minus-1"></i></button>
+              <button type="button" class="qty-plus" data-key="${itemKey(i)}"><i class="flaticon-plus"></i></button>
+              <button type="button" class="qty-minus" data-key="${itemKey(i)}"><i class="flaticon-minus-1"></i></button>
             </div>
           </div>
         </div>
       </td>
       <td><span class="ul-cart-item-subtotal">${money(i.price * i.qty)}</span></td>
       <td>
-        <div class="ul-cart-item-remove"><button type="button" class="cart-remove" data-id="${i.id}"><i class="flaticon-close"></i></button></div>
+        <div class="ul-cart-item-remove"><button type="button" class="cart-remove" data-key="${itemKey(i)}"><i class="flaticon-close"></i></button></div>
       </td>
     </tr>`).join('')
     : '<tr><td colspan="5" class="text-center py-4">Tu carrito está vacío</td></tr>';
@@ -84,12 +139,12 @@ document.addEventListener('click', e => {
   const remove = e.target.closest('.cart-remove');
   if (!plus && !minus && !remove) return;
 
-  const id = (plus || minus || remove).dataset.id;
+  const key = (plus || minus || remove).dataset.key;
   let cart = getCart();
 
-  if (remove) cart = cart.filter(i => i.id !== id);
+  if (remove) cart = cart.filter(i => itemKey(i) !== key);
   else {
-    const item = cart.find(i => i.id === id);
+    const item = cart.find(i => itemKey(i) === key);
     if (plus && cartUnits(cart) >= MAX_UNITS) return maxUnitsMessage();
     item.qty += plus ? 1 : -1;
     if (item.qty < 1) item.qty = 1;

@@ -212,6 +212,10 @@
 
     <!-- custom JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script>
+        // Ingredientes que se pueden quitar, por id de platillo (salen de config/products.php).
+        window.PRODUCT_EXTRAS = @json((object) collect(config('products'))->map(fn ($p) => $p['extras'] ?? [])->filter()->all());
+    </script>
     <script src="{{ asset('assets/js/cart.js') }}"></script>
     <script src="{{ asset('assets/js/tab.js') }}"></script>
     <script src="{{ asset('assets/js/countdown.js') }}"></script>

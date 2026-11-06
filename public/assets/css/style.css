@@ -5314,3 +5314,65 @@ button {
 .ul-checkout-agreement-wrapper label input:checked ~ .txt::after {
   opacity: 1;
 }/*# sourceMappingURL=style.css.map */
+/* Ventana para elegir ingredientes al agregar un platillo (cart.js) */
+.extras-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.55);
+}
+.extras-modal-box {
+  width: 100%;
+  max-width: 380px;
+  padding: 24px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+.extras-modal-box h3 {
+  margin: 0 0 4px;
+  font-size: 22px;
+}
+.extras-modal-box p {
+  margin: 0 0 14px;
+  color: #666;
+}
+.extras-modal-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 17px;
+  cursor: pointer;
+}
+.extras-modal-option input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--ul-primary);
+  cursor: pointer;
+}
+.extras-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+.extras-modal-cancel {
+  border: none;
+  background: none;
+  color: #666;
+  font-weight: 600;
+}
+.ul-cart-product-extras {
+  display: block;
+  margin-top: 4px;
+  color: #777;
+  font-size: 14px;
+  font-weight: 400;
+}

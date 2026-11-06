@@ -17,9 +17,11 @@
 
         const name  = document.getElementById('customer-name').value.trim();
         const email = document.getElementById('customer-email').value.trim();
+        const address = document.getElementById('customer-address').value.trim();
         const date  = document.getElementById('delivery-date').value.trim();
 
         if (!name || !email) return alert('Escribe tu nombre y correo');
+        if (!address) return alert('Escribe la dirección de entrega');
         if (!date) return alert('Selecciona una fecha de entrega');
 
         const label = btn.textContent;
@@ -37,8 +39,10 @@
                 body: JSON.stringify({
                     name: name,
                     email: email,
+                    address: address,
                     delivery_date: date,
-                    items: cart.map(p => ({ id: Number(p.id), qty: Number(p.qty ?? p.quantity) }))
+                    // extras = ingredientes elegidos; si falta (carritos viejos), el servidor lo manda con todos.
+                    items: cart.map(p => ({ id: Number(p.id), qty: Number(p.qty ?? p.quantity), extras: p.extras }))
                 })
             });
 
