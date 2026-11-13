@@ -17,4 +17,5 @@ return [
     10 => ['name' => 'Arroz con Leche',        'price' => 1],
     11 => ['name' => 'Flan Napolitano',        'price' => 1],
     12 => ['name' => 'Pay de Limon',           'price' => 1],
+    13 => ['name' => 'Charola Completa',       'price' => 1],
 ];
