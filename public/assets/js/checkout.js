@@ -46,8 +46,9 @@
                 })
             });
 
-            const data = await res.json();
-            if (!res.ok) throw new Error(data.message || 'Error al iniciar el pago');
+            // Si la respuesta no es JSON (p. ej. una página de error de Cloudflare), no truena aquí.
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok || !data.url) throw new Error(data.message || `Error al iniciar el pago (${res.status})`);
 
             window.location.href = data.url;
         } catch (err) {

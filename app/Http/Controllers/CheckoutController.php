@@ -216,7 +216,8 @@ class CheckoutController extends Controller
                 'status' => $response->status(),
                 'body'   => $response->body(),
             ]);
-            return response()->json(['message' => 'No se pudo iniciar el pago'], 502);
+            // 500 y no 502: Cloudflare reemplaza las respuestas 502 por su propia página y se pierde este mensaje.
+            return response()->json(['message' => 'No se pudo iniciar el pago'], 500);
         }
 
         $order->update(['mp_preference_id' => $response['id']]);
