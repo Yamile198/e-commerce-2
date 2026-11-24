@@ -62,13 +62,13 @@
 
                         <div style="margin-bottom:16px;">
                             <label for="customer-name" class="inner-title" style="display:block; margin-bottom:6px;">Nombre</label>
-                            <input type="text" id="customer-name" placeholder="Tu nombre" autocomplete="name"
+                            <input type="text" id="customer-name" placeholder="Tu nombre" autocomplete="name" maxlength="80"
                                    style="width:100%; padding:10px 12px; border:1px solid #ddd; border-radius:6px; background:#fff;">
                         </div>
 
                         <div style="margin-bottom:16px;">
                             <label for="customer-email" class="inner-title" style="display:block; margin-bottom:6px;">Correo electrónico</label>
-                            <input type="email" id="customer-email" placeholder="tucorreo@ejemplo.com" autocomplete="email"
+                            <input type="email" id="customer-email" placeholder="tucorreo@ejemplo.com" autocomplete="email" maxlength="120"
                                    style="width:100%; padding:10px 12px; border:1px solid #ddd; border-radius:6px; background:#fff;">
                         </div>
 

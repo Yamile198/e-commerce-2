@@ -16,6 +16,12 @@ Route::get('/cart', function () {
     return view('cart');
 })->name('cart');
 
+// Ruta de nosotros (about)
+Route::view('/about', 'about')->name('about');
+
+// Ruta de eventos
+Route::view('/eventos', 'events')->name('events');
+
 use App\Http\Controllers\CheckoutController;
 
 Route::post('/checkout', [CheckoutController::class, 'create'])->name('checkout');

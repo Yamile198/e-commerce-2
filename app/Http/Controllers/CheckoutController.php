@@ -84,10 +84,11 @@ class CheckoutController extends Controller
     public function create(Request $request)
     {
         $data = $request->validate([
-            'name'          => 'required|string|max:120',
-            'email'         => 'required|email|max:120',
-            'address'       => 'required|string|max:300',
-            'delivery_date' => 'required|string|max:30',
+            // Mismas reglas que los filtros de public/assets/js/checkout.js.
+            'name'          => ['required', 'string', 'max:80', "regex:/^[\p{L}\s'.-]+$/u", 'regex:/\p{L}{2,}/u'],
+            'email'         => ['required', 'email', 'max:120', 'regex:/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/'],
+            'address'       => ['required', 'string', 'min:10', 'max:300', 'regex:/^[\p{L}\d\s.,#°\/-]+$/u', 'regex:/\d/'],
+            'delivery_date' => ['required', 'date_format:d/m/Y', 'after_or_equal:today'],
             'items'         => 'required|array|min:1',
             'items.*.id'    => 'required|integer',
             'items.*.qty'   => 'required|integer|min:1|max:50',
@@ -96,6 +97,11 @@ class CheckoutController extends Controller
         ], [
             'address.required' => 'Escribe la dirección de entrega.',
             'address.max'      => 'La dirección puede tener máximo 300 caracteres.',
+            'address.min'      => 'Escribe la dirección completa: calle, número y colonia.',
+            'address.regex'    => 'Escribe la dirección completa con número, usando solo letras, números y . , # ° / -',
+            'name.regex'       => 'Escribe un nombre válido (solo letras).',
+            'email.regex'      => 'Escribe un correo válido.',
+            'delivery_date.*'  => 'Elige una fecha de entrega válida.',
         ]);
 
         $email = strtolower($data['email']);

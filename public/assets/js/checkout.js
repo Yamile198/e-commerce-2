@@ -3,6 +3,29 @@
     // Llave de localStorage donde cart.js guarda el carrito. Ajusta si usa otra.
     const CART_KEY = 'cart';
 
+    // Caracteres permitidos por campo. Lo que no coincida se borra mientras se escribe o se pega.
+    // El servidor (CheckoutController) aplica las mismas reglas.
+    const FILTERS = {
+        'customer-name':    /[^\p{L}\s'.-]/gu,          // letras (con acentos y ñ), espacios, ' . -
+        'customer-email':   /[^A-Za-z0-9._%+@-]/g,      // caracteres válidos de un correo, sin espacios
+        'customer-address': /[^\p{L}\d\s.,#°\/-]/gu     // letras, números, espacios y . , # ° / -
+    };
+    const EMAIL_RE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+    document.addEventListener('input', function (e) {
+        const re = FILTERS[e.target.id];
+        if (!re || e.isComposing) return;
+
+        const el = e.target;
+        const clean = el.value.replace(re, '');
+        if (clean === el.value) return;
+
+        // Conserva la posición del cursor después de quitar caracteres.
+        const pos = el.selectionStart - (el.value.length - clean.length);
+        el.value = clean;
+        el.setSelectionRange(Math.max(pos, 0), Math.max(pos, 0));
+    });
+
     document.addEventListener('click', async function (e) {
         const btn = e.target.closest('.ul-cart-checkout-direct-btn');
         if (!btn) return;
@@ -21,7 +44,10 @@
         const date  = document.getElementById('delivery-date').value.trim();
 
         if (!name || !email) return alert('Escribe tu nombre y correo');
+        if (!/\p{L}{2,}/u.test(name)) return alert('Escribe un nombre válido (solo letras)');
+        if (!EMAIL_RE.test(email)) return alert('Escribe un correo válido, por ejemplo tucorreo@ejemplo.com');
         if (!address) return alert('Escribe la dirección de entrega');
+        if (address.length < 10 || !/\d/.test(address)) return alert('Escribe la dirección completa: calle, número y colonia');
         if (!date) return alert('Selecciona una fecha de entrega');
 
         const label = btn.textContent;

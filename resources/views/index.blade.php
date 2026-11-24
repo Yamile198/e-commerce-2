@@ -21,7 +21,7 @@
                                                 <h1 class="ul-banner-title">Cocina Mexicana para Eventos y Pedidos Especiales</h1>
                                                 <p class="ul-banner-descr">Empresa Familiar con el sazón Mexicano adaptado a todo tipo de eventos y pedidos especiales </p>
                                                 <div class="ul-banner-btns">
-                                                    <a href="{{ route('home') }}" class="ul-btn">ORDENA AHORA <i class="flaticon-right"></i></a>
+                                                    <a href="{{ route('shop') }}" class="ul-btn">ORDENA AHORA <i class="flaticon-right"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -173,7 +173,7 @@
                                     <a href="shop-details.html" class="ul-food-title">Mole con Pollo</a>
                                     <p class="ul-food-sub-title">Mole casero con pollo tierno, listo para compartir en familia. Va con arroz rojo.  </p>
                                     <div class="ul-food-bottom">
-                                        <span class="ul-food-price"><span class="number">$1.00</span></span>
+                                        <span class="ul-food-price"><span class="number">$5.00</span></span>
                                         <div class="ul-food-rating">
                                             <i class="flaticon-star"></i>
                                             <i class="flaticon-star"></i>

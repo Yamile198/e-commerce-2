@@ -81,24 +81,7 @@
                         </div>
                     </div>
 
-                    <div class="ul-header-top-right">
-                        <div class="ul-header-auth-options">
-                            <i class="flaticon-user"></i>
-                            <a href="#">Login</a>
-                            <span>/</span>
-                            <a href="#">Register</a>
-                        </div>
-
-                        <div class="ul-header-socials">
-                            <span class="socials-title">Siguenos: </span>
-                            <div class="links">
-                                <a href="#"><i class="flaticon-facebook"></i></a>
-                                <a href="#"><i class="flaticon-twitter"></i></a>
-                                <a href="#"><i class="flaticon-linkedin-big-logo"></i></a>
-                                <a href="#"><i class="flaticon-youtube"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -116,9 +99,9 @@
                         <div class="to-go-to-sidebar-in-mobile">
                             <nav class="ul-header-nav">
                                 <a href="{{ route('home') }}">INICIO</a>
-                                <a href="{{ route('home') }}">NOSOTROS</a>
+                                <a href="{{ route('about') }}">NOSOTROS</a>
                                 <a href="{{ route('shop') }}">MENÚ</a>
-                                <a href="{{ route('home') }}">EVENTOS</a>
+                                <a href="{{ route('events') }}">EVENTOS</a>
                                 <a href="{{ route('home') }}">CONTACTANOS</a>
                             </nav>
                         </div>
@@ -168,7 +151,7 @@
                         <div class="ul-footer-widget-links">
                             <a href="{{ route('home') }}">Nosotros</a>
                             <a href="{{ route('shop') }}">Menú</a>
-                            <a href="{{ route('home') }}">Eventos</a>
+                            <a href="{{ route('events') }}">Eventos</a>
                             <a href="{{ route('home') }}">Contactanos</a>
                         </div>
                     </div>

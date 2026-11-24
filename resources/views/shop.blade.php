@@ -55,7 +55,7 @@
                                 <a href="shop-details.html" class="ul-food-title">Mole con Pollo</a>
                                 <p class="ul-food-sub-title">El palto de mole casero con pollo tierno, listo para compartir en familia. Va con arroz rojo. </p>
                                 <div class="ul-food-bottom">
-                                    <span class="ul-food-price"><span class="number">$1.00</span></span>
+                                    <span class="ul-food-price"><span class="number">$5.00</span></span>
                                     <div class="ul-food-rating">
                                         <i class="flaticon-star"></i>
                                         <i class="flaticon-star"></i>
@@ -116,6 +116,8 @@
                         </div>
                     </div>
 
+
+
                     <!-- single menu item -->
                     <div class="col">
                         <div class="ul-food">
@@ -140,6 +142,8 @@
                         </div>
                     </div>
 
+
+
                     <!-- single menu item -->
                     <div class="col">
                         <div class="ul-food">
@@ -163,6 +167,9 @@
                             </div>
                         </div>
                     </div>
+
+
+
 
                     <!-- single menu item -->
                     <div class="col">

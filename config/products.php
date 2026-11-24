@@ -6,7 +6,7 @@
 // 'extras' = ingredientes que el cliente puede quitar al agregar el platillo (todos vienen marcados).
 return [
     1  => ['name' => 'Cochinita Pibil',        'price' => 1, 'extras' => ['Cebolla', 'Limón', 'Salsa']],
-    2  => ['name' => 'Mole con Pollo',         'price' => 1, 'extras' => ['Ajonjolí']],
+    2  => ['name' => 'Mole con Pollo',         'price' => 5, 'extras' => ['Ajonjolí']],
     3  => ['name' => 'Tinga de Pollo',         'price' => 1],
     4  => ['name' => 'Enchiladas Verdes',      'price' => 1, 'extras' => ['Cebolla', 'Queso', 'Crema', 'Lechuga']],
     5  => ['name' => 'Mini Quesadillas',       'price' => 1, 'extras' => ['Queso', 'Crema', 'Lechuga', 'Salsa']],
@@ -17,5 +17,5 @@ return [
     10 => ['name' => 'Arroz con Leche',        'price' => 1],
     11 => ['name' => 'Flan Napolitano',        'price' => 1],
     12 => ['name' => 'Pay de Limon',           'price' => 1],
-    13 => ['name' => 'Charola Completa',       'price' => 1],
+
 ];
