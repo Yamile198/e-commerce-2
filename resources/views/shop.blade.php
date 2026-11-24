@@ -313,7 +313,7 @@
                     <div class="col">
                         <div class="ul-food">
                             <div class="ul-food-img">
-                                <img src="{{ asset('images/charola.webp') }}" alt="food Image">
+                                <img src="{{ asset('images/enchiladas.webp') }}" alt="food Image">
                             </div>
                             <div class="ul-food-txt">
                                 <a href="shop-details.html" class="ul-food-title">Charola Completa</a>
@@ -328,7 +328,7 @@
                                         <i class="flaticon-star"></i>
                                     </div>
                                 </div>
-                                <button class="ul-food-add-to-cart-btn add-to-cart" data-id="13" data-name="Charola Completa" data-price="1" data-img="images/charola.webp"><i class="flaticon-cart"></i></button>
+                                <button class="ul-food-add-to-cart-btn add-to-cart" data-id="13" data-name="Charola Completa" data-price="1" data-img="images/enchiladas.webp"><i class="flaticon-cart"></i></button>
                             </div>
                         </div>
                     </div>

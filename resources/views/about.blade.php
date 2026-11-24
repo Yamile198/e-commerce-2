@@ -88,8 +88,7 @@
                 <div class="col-xl-7 col-lg-6">
                     <div class="ul-specialities-img">
                         <img src="{{ asset('assets/img/speciality-img-bg.svg') }}" alt="Background Shape" class="bg-shape">
-                        <img src="{{ asset('assets/img/specialities-img.png') }}" alt="Image" class="main-img">
-                        <img src="{{ asset('assets/img/banner-vector-2.png') }}" alt="vector" class="vector">
+                        <img src="{{ asset('images/cochinita-pibil.webp') }}" alt="Cochinita pibil casera" style="object-fit:cover;aspect-ratio:602/568;border-radius:16px" class="main-img">
                     </div>
                 </div>
 

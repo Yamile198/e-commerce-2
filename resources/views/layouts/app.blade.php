@@ -102,7 +102,7 @@
                                 <a href="{{ route('about') }}">NOSOTROS</a>
                                 <a href="{{ route('shop') }}">MENÚ</a>
                                 <a href="{{ route('events') }}">EVENTOS</a>
-                                <a href="{{ route('home') }}">CONTACTANOS</a>
+                            
                             </nav>
                         </div>
                     </div>
@@ -174,12 +174,43 @@
                     <p class="copyright-txt">&copy;
                         <script>document.write(new Date().getFullYear())</script> Sabor en Casa. All rights reserved
                     </p>
-                    <div class="ul-footer-bottom-nav"><a href="#">Terms &amp; Conditions</a> <a href="#">Privacy Policy</a></div>
+                    <div class="ul-footer-bottom-nav"><a href="{{ route('terms') }}">Términos y Condiciones</a> <a href="{{ route('privacy') }}">Aviso de Privacidad</a></div>
                 </div>
             </div>
         </div>
     </footer>
     <!-- FOOTER SECTION END -->
+
+    <!-- AVISO DE TÉRMINOS Y CONDICIONES -->
+    <div id="terms-banner" class="terms-banner" role="dialog" aria-live="polite" aria-label="Aviso de términos y condiciones" hidden>
+        <p class="terms-banner-txt">
+            Usamos cookies y almacenamiento local para que tu carrito y tus pedidos funcionen. Al continuar aceptas nuestros
+            <a href="{{ route('terms') }}">Términos y Condiciones</a> y nuestro <a href="{{ route('privacy') }}">Aviso de Privacidad</a>.
+        </p>
+        <button type="button" id="terms-accept" class="terms-banner-btn">Aceptar</button>
+    </div>
+    <style>
+        .terms-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:960px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:16px 20px;background:#fff;border-top:4px solid var(--ul-primary,#EB0029);border-radius:12px;box-shadow:0 10px 30px rgba(1,15,28,.18)}
+        .terms-banner[hidden]{display:none}
+        .terms-banner-txt{margin:0;flex:1;font-size:14px;line-height:1.5;color:var(--ul-black,#010F1C)}
+        .terms-banner-txt a{color:var(--ul-primary,#EB0029);font-weight:600;text-decoration:underline}
+        .terms-banner-btn{flex-shrink:0;border:0;border-radius:8px;padding:10px 24px;background:var(--ul-primary,#EB0029);color:#fff;font-weight:700;cursor:pointer}
+        .terms-banner-btn:hover{opacity:.9}
+        @media (max-width:576px){.terms-banner{flex-direction:column;align-items:stretch;text-align:center}}
+    </style>
+    <script>
+        (function () {
+            var KEY = 'terms_accepted_v1';
+            var banner = document.getElementById('terms-banner');
+            var accepted = false;
+            try { accepted = localStorage.getItem(KEY) === '1'; } catch (e) {}
+            if (!accepted) banner.hidden = false;
+            document.getElementById('terms-accept').addEventListener('click', function () {
+                try { localStorage.setItem(KEY, '1'); } catch (e) {}
+                banner.hidden = true;
+            });
+        })();
+    </script>
 
     <!-- libraries JS -->
     <script src="{{ asset('assets/vendor/bootstrap/bootstrap.bundle.min.js') }}"></script>

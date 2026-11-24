@@ -373,9 +373,8 @@
             <!-- BLOQUE 1: PROPUESTA DE VALOR -->
             <section class="about-section">
                 <div class="about-images">
-                    <!-- Reemplaza 'src' con las URLs de tus fotografías reales -->
-                    <img src="https://via.placeholder.com/602x568?text=Banquete+Mexicano+Casero" alt="Comida mexicana para eventos Sabores en Casa" class="img-main">
-                    <img src="https://via.placeholder.com/300x300?text=Charolas+y+Postres" alt="Charolas y postres caseros" class="img-secondary">
+                    <img src="{{ asset('images/mole-pollo.webp') }}" alt="Mole con pollo casero para eventos Sabores en Casa" class="img-main">
+                    <img src="{{ asset('images/patel-leche.webp') }}" alt="Pastel de tres leches casero" class="img-secondary">
                 </div>
 
                 <div class="about-content">
@@ -448,6 +447,191 @@
                 </div>
             </section>
 
+        </div>
+
+        <!-- BLOQUE EXTRA: EXPERIENCIAS DE CLIENTES (ancho completo) -->
+        <section class="sec-exp" aria-labelledby="exp-titulo">
+          <style>
+            .sec-exp{
+              --exp-rojo:#e8002a;
+              --exp-naranja:#f5a623;
+              --exp-tinta:#1f2937;
+              --exp-suave:#6b7280;
+              --exp-crema:#fff6ea;
+              font-family:inherit;
+              padding:72px 20px;
+              background:var(--exp-crema);
+            }
+            .sec-exp *{box-sizing:border-box}
+            .sec-exp .exp-wrap{max-width:1100px;margin:0 auto}
+            .sec-exp h2{
+              margin:0 0 12px;
+              font-size:clamp(26px,4vw,38px);
+              line-height:1.15;
+              font-weight:800;
+              color:var(--exp-tinta);
+              max-width:620px;
+            }
+            .sec-exp .exp-intro{
+              margin:0 0 40px;
+              max-width:560px;
+              color:var(--exp-suave);
+              font-size:15px;
+              line-height:1.7;
+            }
+            .sec-exp .exp-grid{
+              display:grid;
+              grid-template-columns:1.25fr 1fr;
+              gap:24px;
+              align-items:stretch;
+            }
+            .sec-exp .exp-destacada{
+              position:relative;
+              background:var(--exp-rojo);
+              color:#fff;
+              border-radius:20px;
+              padding:40px 36px 32px;
+              display:flex;
+              flex-direction:column;
+              justify-content:space-between;
+              overflow:hidden;
+            }
+            .sec-exp .exp-destacada::before{
+              content:"“";
+              position:absolute;
+              top:-30px;right:20px;
+              font-size:220px;
+              line-height:1;
+              font-family:Georgia,serif;
+              color:var(--exp-naranja);
+              opacity:.9;
+              pointer-events:none;
+            }
+            .sec-exp .exp-destacada blockquote{
+              margin:0 0 28px;
+              position:relative;
+              font-size:clamp(18px,2.2vw,23px);
+              line-height:1.5;
+              font-weight:600;
+            }
+            .sec-exp .exp-pie{display:flex;align-items:center;gap:12px}
+            .sec-exp .exp-inicial{
+              width:44px;height:44px;border-radius:50%;
+              background:#fff;color:var(--exp-rojo);
+              display:grid;place-items:center;
+              font-weight:800;font-size:18px;flex:none;
+            }
+            .sec-exp .exp-nombre{font-weight:700;font-size:15px;margin:0}
+            .sec-exp .exp-evento{font-size:13px;opacity:.85;margin:2px 0 0}
+            .sec-exp .exp-lado{display:grid;gap:24px}
+            .sec-exp .exp-tarjeta{
+              background:#fff;
+              border-radius:16px;
+              padding:26px 26px 22px;
+              border-left:5px solid var(--exp-naranja);
+            }
+            .sec-exp .exp-estrellas{
+              color:var(--exp-naranja);
+              letter-spacing:3px;
+              font-size:16px;
+              margin:0 0 10px;
+            }
+            .sec-exp .exp-tarjeta blockquote{
+              margin:0 0 16px;
+              color:var(--exp-tinta);
+              font-size:15px;
+              line-height:1.65;
+            }
+            .sec-exp .exp-tarjeta .exp-nombre{color:var(--exp-tinta)}
+            .sec-exp .exp-tarjeta .exp-evento{color:var(--exp-suave)}
+            .sec-exp .exp-cierre{
+              margin-top:36px;
+              display:flex;
+              flex-wrap:wrap;
+              align-items:center;
+              gap:16px 24px;
+            }
+            .sec-exp .exp-cierre p{margin:0;color:var(--exp-tinta);font-weight:600;font-size:16px}
+            .sec-exp .exp-btn{
+              display:inline-block;
+              padding:12px 22px;
+              border:1.5px solid var(--exp-rojo);
+              color:var(--exp-rojo);
+              background:transparent;
+              border-radius:6px;
+              font-weight:700;
+              font-size:14px;
+              text-decoration:none;
+              transition:background .2s,color .2s;
+            }
+            .sec-exp .exp-btn:hover,
+            .sec-exp .exp-btn:focus-visible{background:var(--exp-rojo);color:#fff}
+            .sec-exp .exp-btn:focus-visible{outline:3px solid var(--exp-naranja);outline-offset:2px}
+            @media (max-width:820px){
+              .sec-exp{padding:52px 16px}
+              .sec-exp .exp-grid{grid-template-columns:1fr}
+              .sec-exp .exp-destacada{padding:34px 24px 26px}
+            }
+          </style>
+
+          <div class="exp-wrap">
+            <h2 id="exp-titulo">Lo que dicen quienes ya comieron con nosotros</h2>
+            <p class="exp-intro">
+              Cada evento es distinto, pero la meta es la misma: que tú disfrutes la fiesta
+              y la comida se encargue sola de que todos repitan platillo.
+            </p>
+
+            <div class="exp-grid">
+              <figure class="exp-destacada" style="margin:0">
+                <blockquote>
+                  Contratamos el banquete mexicano para los 15 años de mi hija y los invitados
+                  no dejaban de preguntar quién había cocinado. Todo llegó caliente, a tiempo
+                  y con el sabor de la comida de casa.
+                </blockquote>
+                <figcaption class="exp-pie">
+                  <span class="exp-inicial" aria-hidden="true">M</span>
+                  <div>
+                    <p class="exp-nombre">María G.</p>
+                    <p class="exp-evento">Fiesta de XV años · 80 personas</p>
+                  </div>
+                </figcaption>
+              </figure>
+
+              <div class="exp-lado">
+                <figure class="exp-tarjeta" style="margin:0">
+                  <p class="exp-estrellas" aria-label="5 de 5 estrellas">★★★★★</p>
+                  <blockquote>
+                    Nos dieron la cotización el mismo día y el menú se ajustó a nuestro presupuesto.
+                    Para la comida de la empresa fue justo lo que necesitábamos.
+                  </blockquote>
+                  <figcaption>
+                    <p class="exp-nombre">Carlos R.</p>
+                    <p class="exp-evento">Evento corporativo · 40 personas</p>
+                  </figcaption>
+                </figure>
+
+                <figure class="exp-tarjeta" style="margin:0">
+                  <p class="exp-estrellas" aria-label="5 de 5 estrellas">★★★★★</p>
+                  <blockquote>
+                    La charola de postres fue lo más comentado de la reunión familiar.
+                    Puntuales, amables y con porciones generosas.
+                  </blockquote>
+                  <figcaption>
+                    <p class="exp-nombre">Laura M.</p>
+                    <p class="exp-evento">Reunión familiar · 25 personas</p>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div class="exp-cierre">
+              <p>¿Listo para que tu evento sea el próximo en esta lista?</p>
+              <a class="exp-btn" href="#cotizador">Cotizar mi evento</a>
+            </div>
+          </div>
+        </section>
+
+        <div class="ev-container">
             <!-- BLOQUE 3: COTIZADOR EN LÍNEA -->
             <section id="cotizador">
                 <div class="section-header">

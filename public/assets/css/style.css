@@ -398,7 +398,7 @@ button {
 }
 
 .ul-breadcrumb {
-  background: url(../img/breadcrumb-bg.jpg) no-repeat center center;
+  background: url("../../images/menu(1).webp") no-repeat center center;
   background-size: cover;
   padding: clamp(122px, 12.72vw, 242px) 15px clamp(42px, 7.99vw, 152px);
   padding: clamp(122px, 12.72vw, 242px) 15px clamp(42px, 6.41vw, 122px);
@@ -1729,7 +1729,7 @@ button {
 }
 
 .ul-foods {
-  background: url(../img/foods-bg.jpg) no-repeat center center;
+  background: url("../../images/fondo-menu.webp") no-repeat center center;
   background-size: cover;
   position: relative;
   z-index: 1;

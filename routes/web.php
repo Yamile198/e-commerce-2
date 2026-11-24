@@ -29,3 +29,6 @@ Route::get('/checkout/fechas-llenas', [CheckoutController::class, 'fullDates'])-
 Route::get('/api/disponibilidad', [CheckoutController::class, 'availability'])->name('api.availability');
 Route::post('/mercadopago/webhook', [CheckoutController::class, 'webhook'])->name('mp.webhook');
 Route::view('/gracias', 'gracias')->name('gracias');
+// Términos y condiciones / aviso de privacidad
+Route::view('/terminos', 'terms')->name('terms');
+Route::view('/aviso-de-privacidad', 'privacy')->name('privacy');
