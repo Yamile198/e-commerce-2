@@ -327,7 +327,7 @@
                                         <i class="flaticon-star"></i>
                                     </div>
                                 </div>
-<button class="ul-food-add-to-cart-btn add-to-cart" data-id="12" data-name="Pozole Patito" data-price="{{ config('products.13.price') }}" data-img="images/pozole.jpg"><i class="flaticon-cart"></i></button>                            </div>
+<button class="ul-food-add-to-cart-btn add-to-cart" data-id="13" data-name="Pozole Patito" data-price="{{ config('products.13.price') }}" data-img="images/pozole.jpg"><i class="flaticon-cart"></i></button>                            </div>
                         </div>
                     </div>
 
