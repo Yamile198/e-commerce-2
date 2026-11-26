@@ -40,7 +40,7 @@
                                         <i class="flaticon-star"></i>
                                     </div>
                                 </div>
-                                <button class="ul-food-add-to-cart-btn add-to-cart" data-id="1" data-name="Cochinita Pibil" data-price="1" data-img="images/cochinita-pibil.webp"><i class="flaticon-cart"></i></button>
+                                <button class="ul-food-add-to-cart-btn add-to-cart" data-id="1" data-name="Cochinita Pibil" data-price="{{ config('products.1.price') }}" data-img="images/cochinita-pibil.webp"><i class="flaticon-cart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                                         <i class="flaticon-star"></i>
                                     </div>
                                 </div>
-<button class="ul-food-add-to-cart-btn add-to-cart" data-id="2" data-name="Mole con Pollo" data-price="1" data-img="images/mole-pollo.webp"><i class="flaticon-cart"></i></button>                        </div>
+<button class="ul-food-add-to-cart-btn add-to-cart" data-id="2" data-name="Mole con Pollo" data-price="{{ config('products.2.price') }}" data-img="images/mole-pollo.webp"><i class="flaticon-cart"></i></button>                        </div>
                     </div>
                     </div>
 
@@ -87,7 +87,7 @@
                                         <i class="flaticon-star"></i>
                                     </div>
                                 </div>
-<button class="ul-food-add-to-cart-btn add-to-cart" data-id="3" data-name="Tinga de Pollo" data-price="1" data-img="images/tinga-pollo.webp"><i class="flaticon-cart"></i></button>                            </div>
+<button class="ul-food-add-to-cart-btn add-to-cart" data-id="3" data-name="Tinga de Pollo" data-price="{{ config('products.3.price') }}" data-img="images/tinga-pollo.webp"><i class="flaticon-cart"></i></button>                            </div>
                             </div>
                         </div>
                     
@@ -111,7 +111,7 @@
                                         <i class="flaticon-star"></i>
                                     </div>
                                 </div>
-                               <button class="ul-food-add-to-cart-btn add-to-cart" data-id="4" data-name="Enchiladas Verdes" data-price="1" data-img="images/enchiladas.webp"><i class="flaticon-cart"></i></button>
+                               <button class="ul-food-add-to-cart-btn add-to-cart" data-id="4" data-name="Enchiladas Verdes" data-price="{{ config('products.4.price') }}" data-img="images/enchiladas.webp"><i class="flaticon-cart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                                         <i class="flaticon-star"></i>
                                     </div>
                                 </div>
-                               <button class="ul-food-add-to-cart-btn add-to-cart" data-id="5" data-name="Mini Quesadillas" data-price="1" data-img="images/quesadillas.webp"><i class="flaticon-cart"></i></button>
+                               <button class="ul-food-add-to-cart-btn add-to-cart" data-id="5" data-name="Mini Quesadillas" data-price="{{ config('products.5.price') }}" data-img="images/quesadillas.webp"><i class="flaticon-cart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
                                         <i class="flaticon-star"></i>
                                     </div>
                                 </div>
-                                <button class="ul-food-add-to-cart-btn add-to-cart" data-id="6" data-name="Sopes" data-price="1" data-img="images/sopes.webp"><i class="flaticon-cart"></i></button>
+                                <button class="ul-food-add-to-cart-btn add-to-cart" data-id="6" data-name="Sopes" data-price="{{ config('products.6.price') }}" data-img="images/sopes.webp"><i class="flaticon-cart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -190,7 +190,7 @@
                                         <i class="flaticon-star"></i>
                                     </div>
                                 </div>
-<button class="ul-food-add-to-cart-btn add-to-cart" data-id="7" data-name="Tamales" data-price="1" data-img="images/tamales.webp"><i class="flaticon-cart"></i></button>                            </div>
+<button class="ul-food-add-to-cart-btn add-to-cart" data-id="7" data-name="Tamales" data-price="{{ config('products.7.price') }}" data-img="images/tamales.webp"><i class="flaticon-cart"></i></button>                            </div>
                         </div>
                     </div>
 
@@ -213,7 +213,7 @@
                                         <i class="flaticon-star"></i>
                                     </div>
                                 </div>
-<button class="ul-food-add-to-cart-btn add-to-cart" data-id="8" data-name="Flautas Doradas" data-price="1" data-img="images/flautas.webp"><i class="flaticon-cart"></i></button>                            </div>
+<button class="ul-food-add-to-cart-btn add-to-cart" data-id="8" data-name="Flautas Doradas" data-price="{{ config('products.8.price') }}" data-img="images/flautas.webp"><i class="flaticon-cart"></i></button>                            </div>
                         </div>
                     </div>
 
@@ -236,7 +236,7 @@
                                         <i class="flaticon-star"></i>
                                     </div>
                                 </div>
-<button class="ul-food-add-to-cart-btn add-to-cart" data-id="9" data-name="Pastel de Tres Leches" data-price="1" data-img="images/patel-leche.webp"><i class="flaticon-cart"></i></button>                            </div>
+<button class="ul-food-add-to-cart-btn add-to-cart" data-id="9" data-name="Pastel de Tres Leches" data-price="{{ config('products.9.price') }}" data-img="images/patel-leche.webp"><i class="flaticon-cart"></i></button>                            </div>
                         </div>
                     </div>
 
@@ -259,7 +259,7 @@
                                         <i class="flaticon-star"></i>
                                     </div>
                                 </div>
-<button class="ul-food-add-to-cart-btn add-to-cart" data-id="10" data-name="Arroz con Leche" data-price="1" data-img="images/arroz-leche.webp"><i class="flaticon-cart"></i></button>                            </div>
+<button class="ul-food-add-to-cart-btn add-to-cart" data-id="10" data-name="Arroz con Leche" data-price="{{ config('products.10.price') }}" data-img="images/arroz-leche.webp"><i class="flaticon-cart"></i></button>                            </div>
                         </div>
                     </div>
 
@@ -282,7 +282,7 @@
                                         <i class="flaticon-star"></i>
                                     </div>
                                 </div>
-<button class="ul-food-add-to-cart-btn add-to-cart" data-id="11" data-name="Flan Napolitano" data-price="1" data-img="images/Flan-napolitano.webp"><i class="flaticon-cart"></i></button>                            </div>
+<button class="ul-food-add-to-cart-btn add-to-cart" data-id="11" data-name="Flan Napolitano" data-price="{{ config('products.11.price') }}" data-img="images/Flan-napolitano.webp"><i class="flaticon-cart"></i></button>                            </div>
                         </div>
                     </div>
 
@@ -305,34 +305,10 @@
                                         <i class="flaticon-star"></i>
                                     </div>
                                 </div>
-<button class="ul-food-add-to-cart-btn add-to-cart" data-id="12" data-name="Pay de Limon" data-price="1" data-img="images/pay-limon.webp"><i class="flaticon-cart"></i></button>                            </div>
+<button class="ul-food-add-to-cart-btn add-to-cart" data-id="12" data-name="Pay de Limon" data-price="{{ config('products.12.price') }}" data-img="images/pay-limon.webp"><i class="flaticon-cart"></i></button>                            </div>
                         </div>
                     </div>
 
-                    <!-- single menu item -->
-                    <div class="col">
-                        <div class="ul-food">
-                            <div class="ul-food-img">
-                                <img src="{{ asset('images/enchiladas.webp') }}" alt="food Image">
-                            </div>
-                            <div class="ul-food-txt">
-                                <a href="shop-details.html" class="ul-food-title">Charola Completa</a>
-                                <p class="ul-food-sub-title">Menú completo en charola: plato de entrada, plato fuerte y postre. </p>
-                                <div class="ul-food-bottom">
-                                    <span class="ul-food-price"><span class="number">$1.00</span></span>
-                                    <div class="ul-food-rating">
-                                        <i class="flaticon-star"></i>
-                                        <i class="flaticon-star"></i>
-                                        <i class="flaticon-star"></i>
-                                        <i class="flaticon-star"></i>
-                                        <i class="flaticon-star"></i>
-                                    </div>
-                                </div>
-                                <button class="ul-food-add-to-cart-btn add-to-cart" data-id="13" data-name="Charola Completa" data-price="1" data-img="images/enchiladas.webp"><i class="flaticon-cart"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
 
                 <!-- PAGINATION START -->
