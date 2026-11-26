@@ -309,6 +309,30 @@
                         </div>
                     </div>
 
+                     <div class="col">
+                        <div class="ul-food">
+                            <div class="ul-food-img">
+                                <img src="{{ asset('images/pozole.jpg') }}" alt="food Image">
+                            </div>
+                            <div class="ul-food-txt">
+                                <a href="shop-details.html" class="ul-food-title">Pozole Patito</a>
+                                <p class="ul-food-sub-title">Pozole patito para parcial dos. </p>
+                                <div class="ul-food-bottom">
+                                    <span class="ul-food-price"><span class="number">$5.00</span></span>
+                                    <div class="ul-food-rating">
+                                        <i class="flaticon-star"></i>
+                                        <i class="flaticon-star"></i>
+                                        <i class="flaticon-star"></i>
+                                        <i class="flaticon-star"></i>
+                                        <i class="flaticon-star"></i>
+                                    </div>
+                                </div>
+<button class="ul-food-add-to-cart-btn add-to-cart" data-id="12" data-name="Pozole Patito" data-price="{{ config('products.13.price') }}" data-img="images/pozole.jpg"><i class="flaticon-cart"></i></button>                            </div>
+                        </div>
+                    </div>
+
+
+
 
 
                 <!-- PAGINATION START -->
